@@ -4,6 +4,7 @@ namespace Krak\SymfonyMessengerAutoScale;
 
 use Symfony\Component\Config\Definition\Builder\BooleanNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -49,7 +50,7 @@ class MessengerAutoScaleBundle extends Bundle
 
             public function getConfiguration(array $config, ContainerBuilder $container) {
                 return new class() implements ConfigurationInterface {
-                    public function getConfigTreeBuilder() {
+                    public function getConfigTreeBuilder(): TreeBuilder {
                         return configTree('messenger_auto_scale', struct([
                             'console_path' => string(['configure' => function(ScalarNodeDefinition $def) {
                                 $def->defaultValue('%kernel.project_dir%/bin/console');
