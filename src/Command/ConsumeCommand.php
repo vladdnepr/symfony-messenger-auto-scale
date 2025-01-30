@@ -21,7 +21,7 @@ final class ConsumeCommand extends Command
             ->setDescription('Start the supervisor to manage the worker consumers.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $output->writeln('<info>Starting Supervisor.</info>');
         $this->supervisor->run();
         return 0;

@@ -26,7 +26,7 @@ final class AlertCommand extends Command
             ->setDescription('Raise any of the configured alerts.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         foreach ($this->supervisorPoolConfigs as $poolConfig) {
             foreach (($this->raiseAlerts)($poolConfig) as $event) {
                 $this->eventDispatcher->dispatch($event);

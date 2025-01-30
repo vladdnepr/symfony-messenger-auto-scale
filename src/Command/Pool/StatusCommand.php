@@ -19,7 +19,7 @@ final class StatusCommand extends PoolCommand
             ->addOption('poll-interval', 'i', InputOption::VALUE_REQUIRED, 'The interval to poll at, defaults to 5 seconds', 5);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $poolNames = $this->getPoolNames($input);
         $shouldPoll = $input->getOption('poll');
         $pollInterval = $input->getOption('poll-interval');

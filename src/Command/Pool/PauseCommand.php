@@ -13,7 +13,7 @@ final class PauseCommand extends PoolCommand
             ->addPoolArgument('The names of the pools to perform a pause');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $poolNames = $this->getPoolNames($input);
         foreach ($poolNames as $poolName) {
             $control = $this->poolControlFactory->createForActor($poolName);

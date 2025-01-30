@@ -13,7 +13,7 @@ final class ResumeCommand extends PoolCommand
             ->addPoolArgument('The names of the pools to perform a resume');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $poolNames = $this->getPoolNames($input);
         foreach ($poolNames as $poolName) {
             $control = $this->poolControlFactory->createForActor($poolName);
